@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"description"})
-@EqualsAndHashCode(exclude = {"description"})
 @Entity
 @Table(name = "books")
 public class Book {

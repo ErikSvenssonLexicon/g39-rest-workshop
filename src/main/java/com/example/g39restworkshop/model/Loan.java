@@ -12,7 +12,6 @@ import java.time.Period;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(exclude = {"loanTaker", "libraryBook"})
-@EqualsAndHashCode(exclude = {"loanTaker", "libraryBook"})
 @Entity
 @Table(name = "loans")
 public class Loan {
