@@ -2,7 +2,7 @@ package com.example.g39restworkshop.service.implementations;
 
 import com.example.g39restworkshop.model.dto.BookDTO;
 import com.example.g39restworkshop.model.entity.Book;
-import com.example.g39restworkshop.service.convertion.DTOService;
+import com.example.g39restworkshop.service.conversion.DTOService;
 import com.example.g39restworkshop.service.interfaces.BookEntityService;
 import com.example.g39restworkshop.service.interfaces.BookService;
 import com.example.g39restworkshop.service.interfaces.LoanEntityService;

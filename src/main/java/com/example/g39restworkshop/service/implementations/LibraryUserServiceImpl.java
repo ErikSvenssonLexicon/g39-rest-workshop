@@ -3,7 +3,7 @@ package com.example.g39restworkshop.service.implementations;
 import com.example.g39restworkshop.model.dto.LibraryUserDTO;
 import com.example.g39restworkshop.model.entity.LibraryUser;
 import com.example.g39restworkshop.model.entity.Loan;
-import com.example.g39restworkshop.service.convertion.DTOService;
+import com.example.g39restworkshop.service.conversion.DTOService;
 import com.example.g39restworkshop.service.interfaces.LibraryUserEntityService;
 import com.example.g39restworkshop.service.interfaces.LibraryUserService;
 import com.example.g39restworkshop.service.interfaces.LoanEntityService;
