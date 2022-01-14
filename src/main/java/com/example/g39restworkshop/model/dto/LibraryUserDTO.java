@@ -29,5 +29,5 @@ public class LibraryUserDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String email;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<BookDTO> activeLoans;
+    private List<LoanDTO> activeLoans;
 }
