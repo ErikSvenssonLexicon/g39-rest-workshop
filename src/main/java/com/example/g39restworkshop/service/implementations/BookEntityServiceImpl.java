@@ -54,10 +54,10 @@ public class BookEntityServiceImpl implements BookEntityService {
     }
 
     public Book internalCopy(Book book, BookDTO dto){
-        book.setAvailable(dto.isAvailable());
+        book.setAvailable(dto.getAvailable());
         book.setDescription(dto.getDescription());
         book.setFinePerDay(dto.getFinePerDay());
-        book.setReserved(dto.isReserved());
+        book.setReserved(dto.getAvailable());
         book.setMaxLoanInDays(dto.getMaxLoanInDays());
         book.setTitle(dto.getTitle());
         return book;

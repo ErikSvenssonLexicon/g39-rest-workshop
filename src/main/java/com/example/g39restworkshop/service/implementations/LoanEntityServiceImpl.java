@@ -62,7 +62,6 @@ public class LoanEntityServiceImpl implements LoanEntityService {
         if(dto == null) throw new IllegalStateException("Dto was null");
         Loan loan = findById(id);
 
-        loan.setLoanDate(dto.getLoanDate());
         loan.setLoanTaker(
                 dto.getLoanTaker() == null ? null : libraryUserEntityService.findById(dto.getLoanTaker().getId())
         );
@@ -71,8 +70,13 @@ public class LoanEntityServiceImpl implements LoanEntityService {
                 dto.getLibraryBook() == null ? null : bookEntityService.findById(dto.getLibraryBook().getId())
         );
 
-        loan.setConcluded(dto.isConcluded());
-        loan.setLoanDate(dto.getLoanDate());
+        if(dto.getConcluded() != null){
+            loan.setConcluded(dto.getConcluded());
+        }
+
+        if(dto.getLoanDate() != null){
+            loan.setLoanDate(dto.getLoanDate());
+        }
 
         return loanDAO.save(loan);
     }
