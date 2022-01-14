@@ -52,6 +52,16 @@ public class LoanController {
         return ResponseEntity.ok(loanService.update(id, dto));
     }
 
+    @PutMapping("/api/v1/loans/{id}/extend")
+    public ResponseEntity<LoanDTO> extendLoan(@PathVariable("id") Integer id, @RequestParam("userId") Integer userId, @RequestParam Integer days){
+        return ResponseEntity.ok(loanService.extendLoan(id, userId, days));
+    }
+
+    @PutMapping("/api/v1/loans/{id}/return")
+    public ResponseEntity<LoanDTO> terminateLoan(@PathVariable("id") Integer id, @RequestParam("userId") Integer userId){
+        return ResponseEntity.ok(loanService.concludeLoan(id, userId));
+    }
+
     @DeleteMapping("/api/v1/loans/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") Integer id){
         return ResponseEntity.ok(loanService.delete(id));

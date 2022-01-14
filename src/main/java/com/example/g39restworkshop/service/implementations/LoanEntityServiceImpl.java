@@ -101,4 +101,29 @@ public class LoanEntityServiceImpl implements LoanEntityService {
     public List<Loan> findByConcluded(boolean concluded) {
         return loanDAO.findByConcludedStatus(concluded);
     }
+
+    @Override
+    public Loan concludeLoan(Integer id, Integer userId) {
+        Loan loan = findById(id);
+        if(userId.equals(loan.getLoanTaker().getId())){
+            loan.setConcluded(true);
+            return loanDAO.save(loan);
+        }else{
+            throw new IllegalArgumentException("userId did not match id of loanTaker");
+        }
+    }
+
+    @Override
+    public Loan extendLoan(Integer id, Integer userId, Integer days) {
+        Loan loan = findById(id);
+        if(userId.equals(loan.getLoanTaker().getId())){
+            if(loan.extendLoan(days)){
+                return loanDAO.save(loan);
+            }else {
+                throw new IllegalStateException("Loan extension rejected");
+            }
+        }else {
+            throw new IllegalArgumentException("userId did not match id of loanTaker");
+        }
+    }
 }

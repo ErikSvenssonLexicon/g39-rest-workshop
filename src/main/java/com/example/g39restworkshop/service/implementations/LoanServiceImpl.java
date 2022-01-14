@@ -72,4 +72,18 @@ public class LoanServiceImpl implements LoanService {
                 .map(dtoService::toSmallDTO)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public LoanDTO concludeLoan(Integer id, Integer userId) {
+        return dtoService.toFullDTO(
+                loanEntityService.concludeLoan(id, userId)
+        );
+    }
+
+    @Override
+    public LoanDTO extendLoan(Integer id, Integer userId, Integer days) {
+        return dtoService.toFullDTO(
+                loanEntityService.extendLoan(id, userId, days)
+        );
+    }
 }
