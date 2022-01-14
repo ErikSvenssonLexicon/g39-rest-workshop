@@ -22,4 +22,9 @@ public class LibraryUser {
     @Column(unique = true)
     private String email;
 
+    @PrePersist
+    void prePersist(){
+        regDate = LocalDate.now();
+    }
+
 }
