@@ -19,6 +19,7 @@ public class LibraryUser {
     private Integer id;
     private LocalDate regDate;
     private String name;
+    @Column(unique = true)
     private String email;
 
 }
