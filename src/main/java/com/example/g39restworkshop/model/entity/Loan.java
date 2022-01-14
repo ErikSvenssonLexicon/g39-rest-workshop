@@ -11,17 +11,16 @@ import java.time.Period;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = {"loanTaker", "libraryBook"})
 @Entity
 @Table(name = "loans")
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_library_user", table = "loans")
     private LibraryUser loanTaker;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_book", table = "loans")
     private Book libraryBook;
     private LocalDate loanDate;
