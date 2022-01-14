@@ -1,5 +1,8 @@
 package com.example.g39restworkshop.model;
 
+import com.example.g39restworkshop.model.entity.Book;
+import com.example.g39restworkshop.model.entity.LibraryUser;
+import com.example.g39restworkshop.model.entity.Loan;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,14 +15,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class LoanTest {
 
     private Book book;
-    private Customer user;
+    private LibraryUser user;
 
     @BeforeEach
     void setUp() {
         book = new Book(
                 1, "Test title", true, false, 10, BigDecimal.TEN, "Test description"
         );
-        user = new Customer(
+        user = new LibraryUser(
                 1, LocalDate.parse("2021-12-13"), "Nils Nilsson", "nils@gmail.com"
         );
     }
@@ -65,13 +68,8 @@ class LoanTest {
                 1, user, book, LocalDate.now().minusDays(book.getMaxLoanInDays() + 1), false
         );
 
+        assertEquals(expected, loan.getFine());
     }
 
-    @Test
-    void setTerminated() {
-    }
 
-    @Test
-    void extendLoan() {
-    }
 }

@@ -1,4 +1,4 @@
-package com.example.g39restworkshop.model;
+package com.example.g39restworkshop.model.entity;
 
 import lombok.*;
 
@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "library_users")
+public class LibraryUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

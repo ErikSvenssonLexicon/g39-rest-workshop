@@ -1,4 +1,4 @@
-package com.example.g39restworkshop.model;
+package com.example.g39restworkshop.model.entity;
 
 import lombok.*;
 
@@ -20,7 +20,7 @@ public class Loan {
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "fk_library_user", table = "loans")
-    private Customer loanTaker;
+    private LibraryUser loanTaker;
     @ManyToOne
     @JoinColumn(name = "fk_book", table = "loans")
     private Book libraryBook;
