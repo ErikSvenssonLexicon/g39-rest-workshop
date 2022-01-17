@@ -21,13 +21,17 @@ import java.util.List;
 public class LibraryUserDTO {
     @NotBlank(groups = {OnPut.class, OnPostLoan.class})
     private Integer id;
+
     @Null(groups = OnPost.class)
     private LocalDate regDate;
-    @NotBlank(message = "This field is required")
+
+    @NotBlank(message = "This field is required", groups = {OnPut.class, OnPost.class})
     private String name;
-    @NotBlank(message = "This field is required")
+
+    @NotBlank(message = "This field is required", groups = {OnPut.class, OnPost.class})
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String email;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<LoanDTO> activeLoans;
 }

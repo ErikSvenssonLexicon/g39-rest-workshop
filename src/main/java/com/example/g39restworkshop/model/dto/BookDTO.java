@@ -21,21 +21,29 @@ import java.util.List;
 @NoArgsConstructor
 @Validated
 public class BookDTO {
+
     @NotBlank(groups = {OnPut.class, OnPostLoan.class})
     private Integer id;
-    @NotBlank(message = "This field is required")
+
+    @NotBlank(message = "This field is required", groups = {OnPut.class, OnPost.class})
     private String title;
+
     private Boolean available = true;
+
     private Boolean reserved = false;
+
     @NotNull(message = "This field is required", groups = {OnPut.class, OnPost.class})
     @Positive(message = "Need to be a positive value", groups = {OnPut.class, OnPost.class})
     private Integer maxLoanInDays;
+
     @NotNull(message = "This field is required", groups = {OnPut.class, OnPost.class})
     @Positive(message = "Need to be a positive value", groups = {OnPut.class, OnPost.class})
     private BigDecimal finePerDay;
+
     @NotBlank(message = "This field is required", groups = {OnPut.class, OnPost.class})
-    @Size(message = "Can be at maximum 255 letters", max = 255)
+    @Size(message = "Can be at maximum 255 letters", max = 255, groups = {OnPut.class, OnPost.class})
     private String description;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<LoanDTO> loanHistory;
 }

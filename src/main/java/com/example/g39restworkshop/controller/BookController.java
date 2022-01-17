@@ -2,8 +2,10 @@ package com.example.g39restworkshop.controller;
 
 import com.example.g39restworkshop.model.dto.BookDTO;
 import com.example.g39restworkshop.service.interfaces.BookService;
+import com.example.g39restworkshop.validation.groups.OnPost;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +36,7 @@ public class BookController {
     }
 
     @PostMapping("/api/v1/books")
-    public ResponseEntity<BookDTO> create(@RequestBody BookDTO dto){
+    public ResponseEntity<BookDTO> create(@Validated(OnPost.class) @RequestBody BookDTO dto){
         return ResponseEntity.status(201).body(bookService.create(dto));
     }
 
